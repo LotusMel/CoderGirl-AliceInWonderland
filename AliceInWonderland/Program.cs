@@ -9,7 +9,10 @@ namespace AliceInWonderland
         public static void Main()
         {
             // TODO: Prompt the user for a string within the first sentence of Alice in Wonderland to search for within this string.
+            Console.WriteLine("Please enter a word or phrase from the first sentence of \"Alice In Wonderland\" and I will see if I can find it: ");
+            string search = Console.ReadLine();
 
+            Console.WriteLine(Match(search));
             Console.ReadLine();
         }
 
@@ -17,7 +20,16 @@ namespace AliceInWonderland
 
         public static bool Match(string search)
         {
-            return Alice.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0;
+            bool result = true;
+            if (Alice.Contains(search, StringComparison.InvariantCultureIgnoreCase))
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }
